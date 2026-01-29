@@ -12,7 +12,7 @@ By storing plans in Inkdrop, you get:
 
 - **Beautiful markdown rendering** - Plans are much easier to read with proper formatting, syntax highlighting, Mermaid diagrams, and LaTeX math blocks
 - **Easy to edit** - Modify the plan before confirming, add notes, or adjust steps directly with the robust Markdown editor in Inkdrop
-- **Multi-device review** - Review and approve plans from any device, including your phone
+- **Multi-device review** - Review and edit plans from any device, including your phone
 - **Revision history** - Track exactly when work started, what changed, and when it completed, with [Inkdrop's revision history](https://docs.inkdrop.app/reference/revision-history)
 - **Progress tracking** - Watch checkboxes get ticked off and status updates appear in real-time
 
