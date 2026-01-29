@@ -16,6 +16,7 @@ This command invokes the **planner** agent to create a comprehensive implementat
 ## When to Use
 
 Use `/plan` when:
+
 - Starting a new feature
 - Making significant architectural changes
 - Working on complex refactoring
@@ -91,11 +92,64 @@ Agent (planner):
 **WAITING FOR CONFIRMATION**: Proceed with this plan? (yes/no/modify)
 ```
 
+## Useful tip
+
+### Codeblock Attributes
+
+Inkdrop supports additional codeblock syntaxes for better readability.
+It can have `line`, `title`, `filename`, `commit`, and `url` attributes.
+For example:
+
+```typescript line=70 commit=f58b8ee url=https://github.com/inkdropapp/mcp-server/blob/f58b8ee08c7fabd134dfe33f78af34b1cff7487e/src/index.ts#L70-L77
+server.tool(
+  'search-notes',
+  `List all notes that contain a given keyword.
+The result does not include entire note bodies as they are truncated in 200 characters.
+You have to retrieve the full note content by calling \`read-note\`.
+Here are tips to specify keywords effectively:
+
+## Use special qualifiers to narrow down results
+```
+
+```js filename="hoge.js" title="Sample Code" line=2
+function foo(bar) {
+  console.log(bar);
+  const a = false;
+  return true;
+}
+```
+
+Use them in your codeblocks within the plan steps as needed.
+
+### Diagrams with Mermaid
+
+When helpful, include architecture diagrams or flowcharts, using Mermaid codeblocks:
+
+```mermaid
+graph TD
+    A[Start] --> B{Is it working?}
+    B -- Yes --> C[Celebrate]
+    B -- No --> D[Debug]
+    D --> B
+```
+
+### Math with LaTeX
+
+For complex logic, represent algorithms or calculations using LaTeX within markdown codeblocks:
+
+```math
+\begin{align*}
+E &= mc^2 \\
+F &= ma
+\end{align*}
+```
+
 ## Important Notes
 
 **CRITICAL**: The planner agent will **NOT** write any code until you explicitly confirm the plan with "yes" or "proceed" or similar affirmative response.
 
 If you want changes, respond with:
+
 - "modify: [your changes]"
 - "different approach: [alternative]"
 - "skip phase 2 and do phase 3 first"
@@ -103,6 +157,7 @@ If you want changes, respond with:
 ## Integration with Other Commands
 
 After planning:
+
 - Use `/tdd` to implement with test-driven development
 - Use `/build-and-fix` if build errors occur
 - Use `/code-review` to review completed implementation
